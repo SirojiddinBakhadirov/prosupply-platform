@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ProSupply — boşqaruv paneli</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F3F5F2;color:#13201A;font:15px/1.5 Inter,system-ui,sans-serif}
+button,input,select,textarea{font:inherit}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:12px 20px;background:#13201A;color:#fff}
+.top b{font-size:17px;margin-right:12px}
+.top nav{display:flex;gap:6px;flex-wrap:wrap}
+.top nav button{background:transparent;border:0;color:#C9D3CC;padding:8px 12px;border-radius:8px;cursor:pointer;min-height:40px}
+.top nav button[aria-current="page"]{background:#24342C;color:#fff}
+.top .me{margin-left:auto;display:flex;gap:10px;align-items:center;font-size:14px;color:#C9D3CC}
+main{max-width:1200px;margin:0 auto;padding:24px 20px}
+.card{background:#fff;border:1px solid #DDE2DC;border-radius:14px;padding:20px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.stat b{display:block;font-size:26px}.stat span{color:#4A5852;font-size:13px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+input,select,textarea{min-height:40px;padding:0 10px;border:1px solid #B9C3BB;border-radius:9px;background:#fff;color:#13201A}
+textarea{padding:8px 10px;width:100%;resize:vertical}
+.btn{min-height:40px;padding:0 16px;border:0;border-radius:9px;background:#136F4A;color:#fff;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid #B9C3BB;color:#13201A}.btn.danger{background:#A3261B}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px 12px;border-top:1px solid #E8ECE7;vertical-align:top}
+th{font-size:13px;color:#4A5852;font-weight:600;border-top:0}
+tbody tr{cursor:pointer}tbody tr:hover{background:#F6F8F5}
+.scroll{overflow-x:auto}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.s-new{background:#FFF1D6;color:#7A4B00}.s-in_work{background:#DDEBFF;color:#1A4A8A}.s-kp_sent{background:#EDE3FF;color:#4B2A8A}.s-won{background:#DCF2E4;color:#0E5E3F}.s-lost{background:#EEE;color:#555}
+.layout{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}.layout>.main{flex:999 1 560px;min-width:0}.layout>.side{flex:1 1 340px;min-width:0}
+.muted{color:#4A5852;font-size:13px}.err{color:#A3261B}
+.login{max-width:380px;margin:10vh auto;display:flex;flex-direction:column;gap:12px}
+label{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:13px}
+pre{white-space:pre-wrap;font:inherit;margin:0;background:#F6F8F5;border-radius:8px;padding:10px}
+:focus-visible{outline:2px solid #136F4A;outline-offset:2px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+(function(){
+  var ST = { new:'Yangi', in_work:'Işda', kp_sent:'KP yuborildi', won:'Mijozga aylandi', lost:'Rad etildi' };
+  var ROLE = { owner:'Asoschi', manager:'Menejer', viewer:'Kuzatuvçi' };
+  var S = { me:null, view:'leads', leads:[], total:0, stats:null, filter:{ status:'', q:'' }, sel:null, users:[], err:'', msg:'' };
+  var E = function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+  var dt = function(s){ var d=new Date(s); return d.toLocaleDateString('ru-RU')+' '+d.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}); };
+  function api(path, opts){
+    opts = opts || {};
+    return fetch('/api'+path, { method: opts.method||'GET', headers: opts.body?{'content-type':'application/json'}:{}, body: opts.body?JSON.stringify(opts.body):undefined, credentials:'same-origin' })
+      .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ if(r.status===401 && path!=='/auth/login'){ S.me=null; render(); } if(!r.ok) throw new Error(j.error||j.message||('Xato '+r.status)); return j; }); });
+  }
+  function loadLeads(){
+    var p = new URLSearchParams(); if(S.filter.status) p.set('status',S.filter.status); if(S.filter.q) p.set('q',S.filter.q);
+    return Promise.all([api('/leads?'+p.toString()), api('/leads/stats')]).then(function(r){ S.leads=r[0].rows; S.total=r[0].total; S.stats=r[1]; render(); });
+  }
+  function openLead(id){ api('/leads/'+id).then(function(l){ S.sel=l; render(); }).catch(function(e){ S.err=e.message; render(); }); }
+  function loadUsers(){ api('/users').then(function(u){ S.users=u; render(); }).catch(function(e){ S.err=e.message; render(); }); }
+
+  function render(){
+    var a = document.getElementById('app');
+    if(!S.me){
+      a.innerHTML = '<form class="login card" id="login"><h1 style="margin:0;font-size:22px">ProSupply — boşqaruv paneli</h1>'+
+        '<label>Email<input name="email" type="email" autocomplete="username" required></label>'+
+        '<label>Parol<input name="password" type="password" autocomplete="current-password" required></label>'+
+        (S.err?'<p class="err" role="alert">'+E(S.err)+'</p>':'')+'<button class="btn" type="submit">Kiriş</button></form>';
+      return;
+    }
+    var h = '<div class="top"><b>ProSupply</b><nav>'+
+      '<button data-view="leads"'+(S.view==='leads'?' aria-current="page"':'')+'>Zayavkalar</button>'+
+      (S.me.role==='owner'?'<button data-view="users"'+(S.view==='users'?' aria-current="page"':'')+'>Foydalanuvçilar</button>':'')+
+      '</nav><div class="me"><span>'+E(S.me.name||S.me.email)+' · '+ROLE[S.me.role]+'</span><button class="btn ghost" style="color:#fff;border-color:#4A5852" data-act="logout">Çiqiş</button></div></div><main>';
+    if(S.err) h += '<p class="err" role="alert">'+E(S.err)+'</p>';
+    if(S.msg) h += '<p role="status" style="color:#0E5E3F">'+E(S.msg)+'</p>';
+    if(S.view==='leads'){
+      var bs = (S.stats&&S.stats.byStatus)||{};
+      h += '<div class="stats"><div class="card stat"><b>'+((S.stats&&S.stats.last7)||0)+'</b><span>Oxirgi 7 kunda</span></div>'+
+        Object.keys(ST).map(function(k){ return '<div class="card stat"><b>'+(bs[k]||0)+'</b><span>'+ST[k]+'</span></div>'; }).join('')+'</div>';
+      h += '<div class="layout"><div class="main card"><div class="bar"><input id="q" type="search" placeholder="Qidiriş: taşkilot, telefon, ism" value="'+E(S.filter.q)+'" style="flex:1 1 220px">'+
+        '<select id="st"><option value="">Barça holatlar</option>'+Object.keys(ST).map(function(k){ return '<option value="'+k+'"'+(S.filter.status===k?' selected':'')+'>'+ST[k]+'</option>'; }).join('')+'</select>'+
+        '<button class="btn ghost" data-act="refresh">Yangilaş</button></div>';
+      h += '<div class="scroll"><table><thead><tr><th>#</th><th>Sana</th><th>Taşkilot</th><th>Telefon</th><th>Faoliyat</th><th>Holat</th></tr></thead><tbody>'+
+        (S.leads.length? S.leads.map(function(l){ return '<tr data-lead="'+l.id+'"><td>'+l.id+'</td><td>'+dt(l.created_at)+'</td><td><b>'+E(l.org)+'</b><div class="muted">'+E(l.contact)+'</div></td><td><a href="tel:'+E(l.phone.replace(/[^\d+]/g,''))+'">'+E(l.phone)+'</a></td><td>'+E(l.segment)+'</td><td><span class="pill s-'+l.status+'">'+ST[l.status]+'</span></td></tr>'; }).join('')
+        : '<tr><td colspan="6" class="muted">Zayavka yöq</td></tr>')+'</tbody></table></div><p class="muted">Jami: '+S.total+'</p></div>';
+      h += '<div class="side">';
+      if(S.sel){
+        var l = S.sel, canEdit = S.me.role!=='viewer';
+        h += '<div class="card" style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;gap:8px"><b>#'+l.id+' · '+E(l.org)+'</b><button class="btn ghost" data-act="close" aria-label="Yopiş">✕</button></div>'+
+          '<div class="muted">'+dt(l.created_at)+' · til: '+l.lang+'</div><div>Kontakt: '+E(l.contact||'—')+'<br>Telefon: <a href="tel:'+E(l.phone.replace(/[^\d+]/g,''))+'">'+E(l.phone)+'</a><br>Faoliyat: '+E(l.segment||'—')+'</div>'+
+          '<div><div class="muted">Tovarlar</div><pre>'+E(l.items||'—')+'</pre></div>'+
+          '<label>Holat<select id="lst"'+(canEdit?'':' disabled')+'>'+Object.keys(ST).map(function(k){ return '<option value="'+k+'"'+(l.status===k?' selected':'')+'>'+ST[k]+'</option>'; }).join('')+'</select></label>'+
+          '<label>Izoh<textarea id="lnote" rows="3"'+(canEdit?'':' disabled')+'>'+E(l.note)+'</textarea></label>'+
+          (canEdit?'<button class="btn" data-act="save">Saqlaş</button>':'')+
+          '<div><div class="muted">Tarix</div>'+(l.events||[]).map(function(e){ return '<div class="muted">'+dt(e.created_at)+' — '+E(e.detail||e.action)+(e.user_name?' ('+E(e.user_name)+')':'')+'</div>'; }).join('')+'</div></div>';
+      } else h += '<div class="card muted">Zayavkani tanlang — tafsilotlar şu yerda çiqadi.</div>';
+      h += '</div></div>';
+    }
+    if(S.view==='users'){
+      h += '<div class="layout"><div class="main card"><h2 style="margin-top:0;font-size:18px">Foydalanuvçilar</h2><div class="scroll"><table><thead><tr><th>Ism</th><th>Email</th><th>Rol</th><th></th></tr></thead><tbody>'+
+        S.users.map(function(u){ return '<tr><td>'+E(u.name)+'</td><td>'+E(u.email)+'</td><td>'+ROLE[u.role]+'</td><td>'+(u.role!=='owner'?'<button class="btn danger" data-del="'+u.id+'">Öçiriş</button>':'')+'</td></tr>'; }).join('')+'</tbody></table></div></div>'+
+        '<form class="side card" id="adduser" style="display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-size:18px">Yangi foydalanuvçi</h2>'+
+        '<label>Ism<input name="name" required></label><label>Email<input name="email" type="email" required></label>'+
+        '<label>Rol<select name="role"><option value="manager">Menejer — zayavkalarni özgartiradi</option><option value="viewer">Kuzatuvçi — faqat köradi</option></select></label>'+
+        '<label>Parol (kamida 12 belgi)<input name="password" type="password" minlength="12" autocomplete="new-password" required></label><button class="btn" type="submit">Qöşiş</button></form></div>';
+    }
+    h += '</main>';
+    a.innerHTML = h;
+  }
+
+  document.addEventListener('submit', function(e){
+    e.preventDefault(); var f = e.target, d = Object.fromEntries(new FormData(f)); S.err=''; S.msg='';
+    if(f.id==='login') api('/auth/login',{method:'POST',body:d}).then(function(u){ S.me=u; S.view='leads'; loadLeads(); }).catch(function(x){ S.err=x.message; render(); });
+    if(f.id==='adduser') api('/users',{method:'POST',body:d}).then(function(){ S.msg='Foydalanuvçi qöşildi'; loadUsers(); }).catch(function(x){ S.err=x.message; render(); });
+  });
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-view],[data-act],[data-lead],[data-del]'); if(!t) return; S.err=''; S.msg='';
+    if(t.dataset.view){ S.view=t.dataset.view; S.sel=null; if(S.view==='users') loadUsers(); else loadLeads(); return; }
+    if(t.dataset.lead && !e.target.closest('a')){ openLead(t.dataset.lead); return; }
+    if(t.dataset.del){ if(confirm('Foydalanuvçi öçirilsinmi?')) api('/users/'+t.dataset.del,{method:'DELETE'}).then(loadUsers).catch(function(x){ S.err=x.message; render(); }); return; }
+    var a = t.dataset.act;
+    if(a==='logout') api('/auth/logout',{method:'POST'}).then(function(){ S.me=null; render(); });
+    if(a==='refresh') loadLeads();
+    if(a==='close'){ S.sel=null; render(); }
+    if(a==='save') api('/leads/'+S.sel.id,{method:'PATCH',body:{ status: document.getElementById('lst').value, note: document.getElementById('lnote').value }})
+      .then(function(){ S.msg='Saqlandi'; openLead(S.sel.id); loadLeads(); }).catch(function(x){ S.err=x.message; render(); });
+  });
+  var qt; document.addEventListener('input', function(e){ if(e.target.id==='q'){ clearTimeout(qt); var v=e.target.value; qt=setTimeout(function(){ S.filter.q=v; loadLeads().then(function(){ var el=document.getElementById('q'); if(el){ el.focus(); el.setSelectionRange(v.length,v.length); } }); }, 350); } });
+  document.addEventListener('change', function(e){ if(e.target.id==='st'){ S.filter.status=e.target.value; loadLeads(); } });
+
+  api('/auth/me').then(function(u){ S.me=u; loadLeads(); }).catch(function(){ S.me=null; render(); });
+})();
+</script>
+</body>
+</html>

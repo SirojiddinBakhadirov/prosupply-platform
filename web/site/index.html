@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProSupply — tashkilotlar uchun taʼminot xizmati, Toshkent</title>
+<meta name="description" content="Ofis, oshxona va xoʻjalik uchun oziq-ovqat, kanselyariya va tozalash vositalari — bitta buyurtmada. Tijorat taklifi 2 soatda, yetkazib berish 1–2 kun. Toshkent va Toshkent viloyati.">
+<link rel="canonical" href="https://prosupply.uz/">
+<meta property="og:title" content="ProSupply — tashkilotlar uchun taʼminot xizmati">
+<meta property="og:description" content="Barcha tovarlar bitta buyurtmada. Tijorat taklifi 2 soatda.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='9' fill='%23136F4A'/%3E%3Cpath d='M10 13l7-4 7 4v8l-7 4-7-4z M10 13l7 4 7-4 M17 17v8' fill='none' stroke='%23fff' stroke-width='1.8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F6F7F4;color:#13201A;font-family:Inter,system-ui,sans-serif}
+a{color:#0E5E3F}a:hover{color:#0A4730}
+h1,h2{font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:5;background:#F6F7F4;border-bottom:1px solid #DDE2DC}
+.hdr{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:14px 24px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#13201A;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px}
+nav{display:flex;flex-wrap:wrap;gap:20px;margin-left:auto;font-size:15px}nav a{color:#3B4A43;text-decoration:none}
+.lang{display:flex;border:1px solid #C9D1CA;border-radius:10px;overflow:hidden}
+.lang button{min-height:40px;padding:0 12px;border:0;background:transparent;color:#13201A;font-weight:600;cursor:pointer;font:inherit}
+.lang button[aria-pressed="true"]{background:#136F4A;color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 24px;border-radius:12px;background:#136F4A;color:#fff;text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:#0E5E3F;color:#fff}.btn.sm{min-height:44px;padding:0 16px;font-size:15px}
+.btn.ghost{background:transparent;border:1.5px solid #136F4A;color:#0E5E3F}
+section{padding:48px 0}
+.hero{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding:72px 0 56px}
+.badge{align-self:flex-start;font-size:14px;font-weight:600;color:#0E5E3F;background:#E3EFE7;padding:6px 12px;border-radius:999px}
+h1{margin:0;font-size:clamp(34px,4.6vw,56px);line-height:1.08}
+.lead{margin:0;font-size:19px;line-height:1.55;color:#3B4A43;max-width:620px}
+.card{background:#fff;border:1px solid #DDE2DC;border-radius:16px;padding:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.grid.w300{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h2{margin:0 0 8px;font-size:36px}.sub{margin:0 0 28px;font-size:17px;color:#4A5852}
+h3{margin:0;font-size:18px}.muted{margin:0;font-size:15px;line-height:1.5;color:#4A5852}
+.fact{display:flex;gap:16px;align-items:baseline}.fact b{font-family:'Space Grotesk',sans-serif;font-size:30px;color:#136F4A;min-width:118px}
+.terms .row{display:flex;flex-wrap:wrap;gap:8px 24px;padding:18px 24px;border-top:1px solid #E8ECE7}.terms .row:first-child{border-top:0}
+.terms .k{flex:1 1 220px;font-weight:600}.terms .v{flex:999 1 420px;line-height:1.55;color:#3B4A43;white-space:pre-line}
+.num{font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;background:#136F4A;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.contact{background:#13201A;color:#F6F7F4;border-radius:22px;padding:40px;display:flex;flex-wrap:wrap;gap:40px}
+.contact a,.contact span.ci{color:#F6F7F4;text-decoration:none;display:flex;gap:10px;align-items:center;min-height:44px}
+form{display:flex;flex-direction:column;gap:14px}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+input,select,textarea{font:inherit;min-height:44px;padding:0 12px;border:1px solid #B9C3BB;border-radius:10px;background:#fff;font-weight:400;color:#13201A}
+textarea{padding:10px 12px;resize:vertical}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:2px solid #136F4A;outline-offset:2px}
+.chk{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;font-size:14px}.chk input{min-height:auto;width:18px;height:18px;margin-top:2px}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.err{color:#A3261B;font-size:14px;margin:0}
+footer{border-top:1px solid #DDE2DC}footer .wrap{padding:24px;display:flex;flex-wrap:wrap;gap:12px 24px;font-size:14px;color:#4A5852}
+@media (max-width:640px){.contact{padding:24px}h2{font-size:28px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript><p style="padding:24px">Telefon: +998 97 344 80 30 · Telegram: @Bkhdrvs</p></noscript>
+<script>
+(function(){
+    const I = {
+      office: 'M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16 M15 10h4a1 1 0 0 1 1 1v10 M8 8h3 M8 12h3 M8 16h3 M3 21h18',
+      factory: 'M3 21V11l5 3v-3l5 3v-3l5 3V5h3v16z M7 18h2 M12 18h2',
+      school: 'M2 9l10-5 10 5-10 5z M6 11v5c3 2 9 2 12 0v-5 M22 9v6',
+      food: 'M7 3v8 M5 3v5a2 2 0 0 0 4 0V3 M7 11v10 M17 3c-2 2-2 6 0 8v10'
+    };
+    const UZ = {
+      navLabel: 'Asosiy menyu', navWho: 'Kimlar uchun', navCat: 'Assortiment', navTerms: 'Shartlar', navContact: 'Aloqa',
+      badge: 'Toshkent va Toshkent viloyati · Yuridik shaxslar va YaTT uchun',
+      heroTitle: 'Ofis, oshxona va xoʻjalik uchun barcha tovarlar — bitta buyurtmada',
+      heroSub: 'Oziq-ovqat, kanselyariya va xoʻjalik mollarini bir manbadan yetkazib beramiz. Siz roʻyxat yuborasiz — biz narxlarni solishtiramiz, 2 soat ichida tijorat taklifini tayyorlaymiz va tovarni kelishilgan vaqtda yetkazamiz.',
+      ctaList: 'Roʻyxat yuboring — narxini bepul hisoblaymiz',
+      heroFacts: [
+        { v: '30 daqiqa', l: 'ichida soʻrovingizga javob beramiz (ish vaqtida)' },
+        { v: '2 soat', l: 'ichida tijorat taklifi tayyor boʻladi (50 dan ortiq pozitsiya — 4 soat)' },
+        { v: '1–2 kun', l: 'yetkazib berish muddati; soat 12:00 gacha berilgan buyurtma — shu kuniyoq' },
+        { v: '24 soat', l: 'ichida sifatsiz tovar almashtiriladi' }
+      ],
+      segTitle: 'Kimlar uchun', segSub: 'Oʻz taʼminot boʻlimi boʻlmagan tashkilotlar uchun. Xaridlarni biz bajaramiz — siz asosiy ishingizga eʼtibor qaratasiz.',
+      segments: [
+        { icon: I.office, title: 'Ofislar', text: 'Kanselyariya, choy va qahva, ichimlik suvi hamda gigiyena vositalari — oylik reja asosida muntazam yetkaziladi.' },
+        { icon: I.factory, title: 'Ishlab chiqarish korxonalari', text: 'Xodimlar oshxonasi uchun oziq-ovqat, shuningdek xoʻjalik va tozalash vositalari.' },
+        { icon: I.school, title: 'Maktab va bogʻchalar', text: 'Oshxona uchun mahsulotlar va oʻquv kanselyariyasi — bitta yetkazib berishda.' },
+        { icon: I.food, title: 'Restoran va kafelar', text: 'Meva-sabzavot, goʻsht va quruq oziq-ovqat mahsulotlari — kelishilgan kun va vaqtda.' }
+      ],
+      catTitle: 'Assortiment', catSub: 'Asosiy toifalar va namunaviy tovarlar. Narxlar har bir soʻrov boʻyicha alohida tijorat taklifida koʻrsatiladi.',
+      cats: [
+        { title: 'Meva va sabzavotlar', items: 'Kartoshka, piyoz, sabzi, karam, pomidor, olma va mavsumiy mevalar' },
+        { title: 'Goʻsht va parranda', items: 'Mol goʻshti, tovuq (butun va boʻlaklangan), qiyma, tuxum' },
+        { title: 'Quruq oziq-ovqat', items: 'Guruch, makaron, un, shakar, oʻsimlik yogʻi, konservalar, ziravorlar' },
+        { title: 'Ichimliklar', items: 'Choy, qahva, ichimlik suvi (0,5 l va 19 l), sharbatlar' },
+        { title: 'Kanselyariya tovarlari', items: 'A4 qogʻoz, papka va fayllar, ruchka, daftar, stepler' },
+        { title: 'Tozalash va xoʻjalik vositalari', items: 'Suyuq sovun, qogʻoz sochiq, hojatxona qogʻozi, chiqindi paketlari, yuvish vositalari' }
+      ],
+      catMore: 'Kerakli tovar roʻyxatda yoʻqmi? Bizga yozing — topib, tijorat taklifiga qoʻshamiz.',
+      stepsTitle: 'Qanday ishlaymiz',
+      steps: [
+        { n: '1', title: 'Soʻrov', text: 'Roʻyxatni Telegram, telefon yoki sayt orqali yuborasiz. 30 daqiqa ichida javob beramiz.' },
+        { n: '2', title: 'Tijorat taklifi', text: '2 soat ichida narxlar koʻrsatilgan taklifni yuboramiz. Taklif 2 kun amal qiladi.' },
+        { n: '3', title: 'Tasdiqlash', text: 'Taklifni tasdiqlaganingizdan soʻng tovarlarni yigʻamiz va sifatini tekshiramiz.' },
+        { n: '4', title: 'Yetkazib berish', text: 'Tovarni kelishilgan vaqtda yetkazamiz hamda yuk xati va elektron hisob-fakturani taqdim etamiz.' }
+      ],
+      termsTitle: 'Hamkorlik shartlari', termsSub: 'Ishni boshlashdan oldin bilishingiz kerak boʻlgan barcha shartlar.',
+      terms: [
+        { k: 'Minimal buyurtma', v: 'Haftasiga 7,5 mln soʻm. Kichikroq hajmdagi buyurtmalar doimiy mijozlardan qabul qilinadi, bunda yetkazib berish narxi alohida hisoblanadi.' },
+        { k: 'Tijorat taklifi', v: '2 soat ichida (50 dan ortiq pozitsiya boʻlsa — 4 soat). Bozor narxlari tez oʻzgargani sababli taklif 2 kun amal qiladi.' },
+        { k: 'Yetkazib berish hududi va muddati', v: 'Toshkent shahri va Toshkent viloyati. Odatiy muddat — 1–2 kun. Soat 12:00 gacha berilgan shoshilinch buyurtma shu kuni yetkaziladi. Yetkazib berish vaqti oldindan kelishiladi.' },
+        { k: 'Toʻlov shartlari', v: 'Yangi mijozlar uchun — yetkazib berilgan kuni yoki 50% oldindan toʻlov.\nShartnoma asosida — tovar qabul qilinganidan keyin 7 kun ichida.\nYirik mijozlar uchun — 14 kun, limit shartnomada belgilanadi.' },
+        { k: 'Toʻlov usuli', v: 'Bank orqali pul oʻtkazish (shartnoma va hisob-faktura asosida).' },
+        { k: 'Sifat kafolati', v: 'Sifatsiz tovar 24 soat ichida almashtiriladi. Tez buziladigan mahsulotlar yuklash vaqtida tekshiriladi, eʼtirozlar esa tovarni topshirish chogʻida koʻrib chiqiladi.' },
+        { k: 'Hujjatlar', v: 'Shartnoma, yuk xati, elektron hisob-faktura va oʻzaro hisob-kitoblarni solishtirish dalolatnomasi.' }
+      ],
+      whyTitle: 'Nima uchun ProSupply',
+      why: [
+        { v: '1 ta', title: 'hamkor 5–10 ta yetkazib beruvchi oʻrniga', text: 'Oziq-ovqat, kanselyariya va xoʻjalik mollari uchun bitta shartnoma, bitta hisob va bitta yetkazib berish.' },
+        { v: '2+', title: 'narx har bir pozitsiya uchun', text: 'Har bir tovar narxini kamida ikki yetkazib beruvchi taklifi bilan solishtiramiz.' },
+        { v: '2 soat', title: 'ichida tayyor taklif', text: 'Roʻyxatingiz boʻyicha toʻliq narxlangan tijorat taklifi — uzoq kutishsiz.' },
+        { v: '24 soat', title: 'ichida almashtirish', text: 'Tovar sifati sizni qoniqtirmasa, bir kun ichida almashtirib beramiz.' }
+      ],
+      formTitle: 'Roʻyxat yuboring — narxini bepul hisoblaymiz', formSub: 'Kerakli tovarlarni quyida yozing yoki faylni (Excel, PDF, rasm) Telegram orqali yuboring. 30 daqiqada javob beramiz, 2 soatda tijorat taklifini tayyorlaymiz.',
+      city: 'Toshkent shahri', hours: 'Dushanba–juma, 9:00–18:00',
+      fOrg: 'Tashkilot nomi', fName: 'Masʼul shaxs', fPhone: 'Telefon raqami', fSeg: 'Faoliyat turi', fList: 'Kerakli tovarlar',
+      fListPh: 'Masalan: A4 qogʻoz — 20 pachka, choy — 10 quti, ichimlik suvi 19 l — 15 dona',
+      segOpts: ['Ofis', 'Ishlab chiqarish', 'Maktab / bogʻcha', 'Restoran / kafe', 'Boshqa'],
+      fSend: 'Soʻrovni tayyorlash', fNote: 'Maʼlumotlaringiz faqat tijorat taklifini tayyorlash uchun foydalaniladi.',
+      doneTitle: 'Soʻrovingiz tayyor', doneText: 'Matnni nusxalab, Telegram orqali bizga yuboring — 30 daqiqa ichida javob beramiz.',
+      copy: 'Matnni nusxalash', copied: 'Nusxalandi', openTg: 'Telegramni ochish', again: 'Yangi soʻrov',
+      footer: 'Tashkilotlar uchun taʼminot xizmati · Toshkent', mOrg: 'Tashkilot', mName: 'Masʼul shaxs', mPhone: 'Telefon', mSeg: 'Faoliyat turi', mList: 'Tovarlar'
+    };
+    const RU = {
+      navLabel: 'Главное меню', navWho: 'Для кого', navCat: 'Ассортимент', navTerms: 'Условия', navContact: 'Контакты',
+      badge: 'Ташкент и Ташкентская область · только юрлица и ИП',
+      heroTitle: 'Всё для офиса, кухни и хозяйства — один заказ, одна доставка',
+      heroSub: 'Поставляем продукты питания, канцтовары и хозтовары из одного окна. Вы присылаете список — мы собираем цены, готовим коммерческое предложение за 2 часа и привозим в согласованное время.',
+      ctaList: 'Пришлите список — посчитаем бесплатно',
+      heroFacts: [
+        { v: '30 мин', l: 'ответ на заявку (в рабочее время)' },
+        { v: '2 часа', l: 'коммерческое предложение, 50+ позиций — 4 часа' },
+        { v: '1–2 дня', l: 'доставка; заявка до 12:00 — в тот же день' },
+        { v: '24 часа', l: 'замена товара ненадлежащего качества' }
+      ],
+      segTitle: 'Для кого', segSub: 'Для организаций без собственного отдела снабжения — закупками занимаемся мы.',
+      segments: [
+        { icon: I.office, title: 'Офисы', text: 'Канцтовары, чай и кофе, вода, хозтовары — по месячному плану.' },
+        { icon: I.factory, title: 'Производства', text: 'Продукты для столовой, хозяйственные и моющие средства.' },
+        { icon: I.school, title: 'Школы и детсады', text: 'Продукты для кухни и учебная канцелярия одной доставкой.' },
+        { icon: I.food, title: 'Рестораны и кафе', text: 'Овощи, фрукты, мясо и бакалея — в согласованный день и время.' }
+      ],
+      catTitle: 'Ассортимент', catSub: 'Основные категории и примеры товаров. Цена — в отдельном КП под каждый запрос.',
+      cats: [
+        { title: 'Овощи и фрукты', items: 'Картофель, лук, морковь, капуста, помидоры, яблоки, сезонные фрукты' },
+        { title: 'Мясо и птица', items: 'Говядина, курица (целая и в разделке), фарш, яйца' },
+        { title: 'Бакалея', items: 'Рис, макароны, мука, сахар, масло, консервы, специи' },
+        { title: 'Напитки', items: 'Чай, кофе, питьевая вода (0,5 л и 19 л), соки' },
+        { title: 'Канцтовары', items: 'Бумага A4, папки и файлы, ручки, тетради, степлеры' },
+        { title: 'Хозтовары и уборка', items: 'Жидкое мыло, бумажные полотенца, туалетная бумага, мусорные пакеты, моющие средства' }
+      ],
+      catMore: 'Нужен товар, которого нет в списке? Напишите — найдём и добавим в КП.',
+      stepsTitle: 'Как мы работаем',
+      steps: [
+        { n: '1', title: 'Заявка', text: 'Присылаете список в Telegram, по телефону или через форму. Отвечаем за 30 минут.' },
+        { n: '2', title: 'Коммерческое предложение', text: 'В течение 2 часов присылаем КП с ценами. КП действует 2 дня.' },
+        { n: '3', title: 'Подтверждение', text: 'Вы подтверждаете — мы собираем товар и проверяем качество.' },
+        { n: '4', title: 'Доставка и документы', text: 'Привозим в согласованное время. Выдаём накладную и электронную счёт-фактуру.' }
+      ],
+      termsTitle: 'Условия', termsSub: 'Всё открыто: что важно знать до начала работы.',
+      terms: [
+        { k: 'Минимальный заказ', v: '7,5 млн сум в неделю. Небольшие заказы — для постоянных клиентов, логистика считается отдельно.' },
+        { k: 'Коммерческое предложение', v: 'В течение 2 часов (50+ позиций — 4 часа). Цены на рынке быстро меняются, поэтому КП действует 2 дня.' },
+        { k: 'Зона и сроки доставки', v: 'Ташкент и Ташкентская область. Обычная доставка 1–2 дня, срочная — в тот же день при заявке до 12:00. Время согласуется заранее.' },
+        { k: 'Оплата', v: 'Новый клиент: в день доставки или 50% предоплата.\nПо договору: в течение 7 дней после приёмки.\nКрупные клиенты: 14 дней, лимит фиксируется в договоре.' },
+        { k: 'Способ оплаты', v: 'Безналичный перевод (на основании договора и счёт-фактуры).' },
+        { k: 'Качество и замена', v: 'Товар ненадлежащего качества заменяем в течение 24 часов. Скоропортящаяся продукция проверяется при погрузке, претензии принимаются при приёмке.' },
+        { k: 'Документы', v: 'Договор, накладная, электронная счёт-фактура (ЭСФ), акт сверки.' }
+      ],
+      whyTitle: 'Почему ProSupply',
+      why: [
+        { v: '1', title: 'поставщик вместо 5–10', text: 'Продукты, канцтовары и хозтовары — один договор, один счёт, одна доставка.' },
+        { v: '2+', title: 'цены по каждой позиции', text: 'Каждый товар сравниваем минимум по двум поставщикам.' },
+        { v: '2 часа', title: 'на готовое предложение', text: 'Полное КП с ценами по вашему списку — без долгого ожидания.' },
+        { v: '24 часа', title: 'гарантия замены', text: 'Не устроило качество — заменим за сутки.' }
+      ],
+      formTitle: 'Пришлите список — посчитаем бесплатно', formSub: 'Напишите нужные товары или отправьте файл (Excel, PDF, фото) в Telegram. Ответ за 30 минут, КП за 2 часа.',
+      city: 'г. Ташкент', hours: 'Пн–Пт 9:00–18:00',
+      fOrg: 'Название организации', fName: 'Контактное лицо', fPhone: 'Телефон', fSeg: 'Сфера деятельности', fList: 'Нужные товары',
+      fListPh: 'Например: бумага A4 — 20 пачек, чай — 10 упаковок, вода 19 л — 15 шт…',
+      segOpts: ['Офис', 'Производство', 'Школа / детсад', 'Ресторан / кафе', 'Другое'],
+      fSend: 'Подготовить заявку', fNote: 'Ваши данные используются только для подготовки предложения.',
+      doneTitle: 'Заявка готова', doneText: 'Скопируйте текст и отправьте в Telegram — ответим за 30 минут.',
+      copy: 'Скопировать текст', copied: 'Скопировано', openTg: 'Открыть Telegram', again: 'Новая заявка',
+      footer: 'Служба снабжения · Ташкент', mOrg: 'Организация', mName: 'Контакт', mPhone: 'Телефон', mSeg: 'Сфера', mList: 'Товары'
+    };
+
+    var lang = (localStorage.getItem('ps_lang') === 'ru') ? 'ru' : 'uz';
+    var state = { sent: false, error: '', busy: false, f: { org:'', contact:'', phone:'', segment:'', items:'', consent:false } };
+    var E = function(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
+    var ico = function(d, size){ return '<svg width="'+(size||20)+'" height="'+(size||20)+'" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="'+d+'"></path></svg>'; };
+    var TG = 'M21 4L3 11l6 2 2 6 3-4 5 4z', PH = 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2';
+    var X = {
+      uz: { consent: 'Shaxsga doir maʼlumotlarimni tijorat taklifi tayyorlash uchun qayta ishlashga roziman.', privacy: 'Maxfiylik siyosati',
+            okTitle: 'Rahmat! Soʻrovingiz qabul qilindi', okText: '30 daqiqa ichida (ish vaqtida) siz bilan bogʻlanamiz. Shoshilinch boʻlsa, telefon qiling yoki Telegramga yozing.',
+            failText: 'Soʻrov yuborilmadi. Iltimos, telefon qiling yoki Telegramga yozing.', sending: 'Yuborilmoqda…', send: 'Soʻrov yuborish' },
+      ru: { consent: 'Согласен на обработку моих персональных данных для подготовки коммерческого предложения.', privacy: 'Политика конфиденциальности',
+            okTitle: 'Спасибо! Заявка принята', okText: 'Свяжемся с вами в течение 30 минут (в рабочее время). Если срочно — позвоните или напишите в Telegram.',
+            failText: 'Заявка не отправлена. Пожалуйста, позвоните или напишите в Telegram.', sending: 'Отправляем…', send: 'Отправить заявку' }
+    };
+    function render(){
+      var t = lang === 'uz' ? UZ : RU, x = X[lang], f = state.f;
+      document.documentElement.lang = lang;
+      var h = '';
+      h += '<header><div class="hdr"><a class="logo" href="#top"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#136F4A"></rect><path d="M10 13l7-4 7 4v8l-7 4-7-4z M10 13l7 4 7-4 M17 17v8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"></path></svg>ProSupply</a>';
+      h += '<nav aria-label="'+E(t.navLabel)+'"><a href="#segments">'+E(t.navWho)+'</a><a href="#catalog">'+E(t.navCat)+'</a><a href="#terms">'+E(t.navTerms)+'</a><a href="#contact">'+E(t.navContact)+'</a></nav>';
+      h += '<div class="lang" role="group" aria-label="Til / Язык"><button type="button" data-lang="uz" aria-pressed="'+(lang==='uz')+'">UZ</button><button type="button" data-lang="ru" aria-pressed="'+(lang==='ru')+'">RU</button></div>';
+      h += '<a class="btn sm" href="tel:+998973448030" data-ev="phone">+998 97 344 80 30</a></div></header>';
+      h += '<main id="top"><div class="wrap">';
+      h += '<div class="hero"><div style="flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:22px"><span class="badge">'+E(t.badge)+'</span><h1>'+E(t.heroTitle)+'</h1><p class="lead">'+E(t.heroSub)+'</p>';
+      h += '<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn" href="#contact">'+E(t.ctaList)+'</a><a class="btn ghost" href="https://t.me/Bkhdrvs" data-ev="telegram">'+ico(TG,18)+'Telegram</a></div></div>';
+      h += '<div class="card" style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:18px;border-radius:18px;padding:28px">'+t.heroFacts.map(function(q){ return '<div class="fact"><b>'+E(q.v)+'</b><span class="muted" style="font-size:16px">'+E(q.l)+'</span></div>'; }).join('')+'</div></div>';
+      h += '<section id="segments"><h2>'+E(t.segTitle)+'</h2><p class="sub">'+E(t.segSub)+'</p><div class="grid">'+t.segments.map(function(s){ return '<div class="card" style="display:flex;flex-direction:column;gap:10px"><svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#136F4A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+s.icon+'"></path></svg><h3 style="font-size:19px">'+E(s.title)+'</h3><p class="muted">'+E(s.text)+'</p></div>'; }).join('')+'</div></section>';
+      h += '<section id="catalog"><h2>'+E(t.catTitle)+'</h2><p class="sub">'+E(t.catSub)+'</p><div class="grid w300">'+t.cats.map(function(c){ return '<div class="card" style="display:flex;flex-direction:column;gap:8px"><h3>'+E(c.title)+'</h3><p class="muted">'+E(c.items)+'</p></div>'; }).join('')+'</div><p style="margin:20px 0 0;font-size:16px;background:#E3EFE7;border-radius:12px;padding:16px 20px">'+E(t.catMore)+'</p></section>';
+      h += '<section><h2 style="margin-bottom:28px">'+E(t.stepsTitle)+'</h2><ol class="grid" style="list-style:none;margin:0;padding:0">'+t.steps.map(function(s){ return '<li class="card" style="display:flex;flex-direction:column;gap:10px"><span class="num">'+E(s.n)+'</span><h3>'+E(s.title)+'</h3><p class="muted">'+E(s.text)+'</p></li>'; }).join('')+'</ol></section>';
+      h += '<section id="terms"><h2>'+E(t.termsTitle)+'</h2><p class="sub">'+E(t.termsSub)+'</p><div class="card terms" style="padding:0;border-radius:18px">'+t.terms.map(function(r){ return '<div class="row"><span class="k">'+E(r.k)+'</span><span class="v">'+E(r.v)+'</span></div>'; }).join('')+'</div></section>';
+      h += '<section><h2 style="margin-bottom:28px">'+E(t.whyTitle)+'</h2><div class="grid">'+t.why.map(function(w){ return '<div style="display:flex;flex-direction:column;gap:8px"><span style="font-family:Space Grotesk,sans-serif;font-size:28px;font-weight:700;color:#136F4A">'+E(w.v)+'</span><h3>'+E(w.title)+'</h3><p class="muted">'+E(w.text)+'</p></div>'; }).join('')+'</div></section>';
+      h += '<section id="contact" style="padding-bottom:72px"><div class="contact"><div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px"><h2 style="margin:0">'+E(t.formTitle)+'</h2><p style="margin:0;font-size:17px;line-height:1.55;color:#C9D3CC">'+E(t.formSub)+'</p>';
+      h += '<div style="display:flex;flex-direction:column;gap:12px;margin-top:8px"><a href="tel:+998973448030" data-ev="phone">'+ico(PH)+'+998 97 344 80 30</a><a href="https://t.me/Bkhdrvs" data-ev="telegram">'+ico(TG)+'Telegram: @Bkhdrvs</a><span class="ci">'+ico('M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z')+E(t.city)+'</span><span class="ci">'+ico('M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18 M12 7v5l3 2')+E(t.hours)+'</span></div></div>';
+      h += '<div style="flex:999 1 420px;min-width:0;background:#F6F7F4;color:#13201A;border-radius:16px;padding:28px">';
+      if (state.sent) {
+        h += '<div role="status" style="display:flex;flex-direction:column;gap:12px"><h3 style="font-size:22px">'+E(x.okTitle)+'</h3><p class="muted" style="font-size:16px">'+E(x.okText)+'</p><div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn" href="https://t.me/Bkhdrvs">Telegram</a><button type="button" class="btn ghost" data-act="again">'+E(t.again)+'</button></div></div>';
+      } else {
+        h += '<form novalidate><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">';
+        h += '<label>'+E(t.fOrg)+'<input name="org" required maxlength="200" autocomplete="organization" value="'+E(f.org)+'"></label>';
+        h += '<label>'+E(t.fName)+'<input name="contact" maxlength="120" autocomplete="name" value="'+E(f.contact)+'"></label>';
+        h += '<label>'+E(t.fPhone)+'<input name="phone" type="tel" required maxlength="40" autocomplete="tel" placeholder="+998" value="'+E(f.phone)+'"></label>';
+        h += '<label>'+E(t.fSeg)+'<select name="segment">'+t.segOpts.map(function(o){ return '<option'+(f.segment===o?' selected':'')+'>'+E(o)+'</option>'; }).join('')+'</select></label></div>';
+        h += '<label>'+E(t.fList)+'<textarea name="items" rows="5" maxlength="5000" placeholder="'+E(t.fListPh)+'">'+E(f.items)+'</textarea></label>';
+        h += '<label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>';
+        h += '<label class="chk"><input type="checkbox" name="consent" required'+(f.consent?' checked':'')+'><span>'+E(x.consent)+' <a href="/maxfiylik.html">'+E(x.privacy)+'</a></span></label>';
+        if (state.error) h += '<p class="err" role="alert">'+E(state.error)+'</p>';
+        h += '<button class="btn" type="submit"'+(state.busy?' disabled':'')+'>'+E(state.busy?x.sending:x.send)+'</button><p style="margin:0;font-size:13px;color:#4A5852">'+E(t.fNote)+'</p></form>';
+      }
+      h += '</div></div></section></div></main>';
+      h += '<footer><div class="wrap"><span>© '+new Date().getFullYear()+' ProSupply</span><span>'+E(t.footer)+'</span><a href="/maxfiylik.html">'+E(x.privacy)+'</a></div></footer>';
+      document.getElementById('app').innerHTML = h;
+    }
+    function track(name){ try { if (window.dataLayer) window.dataLayer.push({ event: name }); } catch(e){} }
+    document.addEventListener('click', function(e){
+      var b = e.target.closest('[data-lang]'); if (b){ lang = b.getAttribute('data-lang'); try{ localStorage.setItem('ps_lang', lang); }catch(_){} render(); return; }
+      var a = e.target.closest('[data-act="again"]'); if (a){ state = { sent:false, error:'', busy:false, f:{ org:'', contact:'', phone:'', segment:'', items:'', consent:false } }; render(); return; }
+      var ev = e.target.closest('[data-ev]'); if (ev) track('click_' + ev.getAttribute('data-ev'));
+    });
+    document.addEventListener('input', function(e){ var el = e.target; if (el.form && el.name && el.name in state.f) state.f[el.name] = el.type === 'checkbox' ? el.checked : el.value; });
+    document.addEventListener('submit', function(e){
+      e.preventDefault(); var fm = e.target, x = X[lang], fd = new FormData(fm);
+      var body = { org: fd.get('org'), contact: fd.get('contact'), phone: fd.get('phone'), segment: fd.get('segment'), items: fd.get('items'), website: fd.get('website'), consent: fm.consent.checked, lang: lang };
+      state.f = { org: body.org, contact: body.contact, phone: body.phone, segment: body.segment, items: body.items, consent: body.consent };
+      state.busy = true; state.error = ''; render();
+      fetch('/api/leads', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok, j: j }; }); })
+        .then(function(res){ state.busy = false; if (res.ok){ state.sent = true; track('lead_submit'); } else { state.error = (res.j && res.j.message) || x.failText; } render(); })
+        .catch(function(){ state.busy = false; state.error = x.failText; render(); });
+    });
+    render();
+})();
+</script>
+</body>
+</html>
